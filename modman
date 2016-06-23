@@ -1,0 +1,4 @@
+app/code/local/Lybe/VatChecker app/code/local/Lybe/VatChecker/
+app/etc/modules/Lybe_VatChecker.xml app/etc/modules/Lybe_VatChecker.xml
+app/locale/sv_SE/Lybe_VatChecker.csv app/locale/sv_SE/Lybe_VatChecker.csv
+app/design/frontend/base/default/template/Lybe/customer/widget/ app/design/frontend/base/default/template/Lybe/customer/widget/
