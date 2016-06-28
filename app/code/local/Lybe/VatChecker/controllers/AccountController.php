@@ -23,18 +23,21 @@ class Lybe_VatChecker_AccountController extends Mage_Customer_AccountController 
          * Override check if VAt is valid
          */
         if ($this->getRequest()->isPost()) {
-            $checkVat = Mage::helper('customer')->checkVatNumber(
-                $this->getRequest()->getParam('country'),
-                $this->getRequest()->getParam('taxvat')
-            );
+            if ($this->getRequest()->getParam('taxvat')){
+                $checkVat = Mage::helper('customer')->checkVatNumber(
+                    $this->getRequest()->getParam('country'),
+                    $this->getRequest()->getParam('taxvat')
+                );
 
-            if(!$checkVat->getIsValid()){
-                $session = $this->_getSession();
-                $session->setCustomerFormData($this->getRequest()->getPost());
-                $session->addError($this->__("VAT Number is Invalid"));
-                $this->_redirectError($errUrl);
-                return;
+                if(!$checkVat->getIsValid()){
+                    $session = $this->_getSession();
+                    $session->setCustomerFormData($this->getRequest()->getPost());
+                    $session->addError($this->__("VAT Number is Invalid"));
+                    $this->_redirectError($errUrl);
+                    return;
+                }
             }
+
         }
 
 
