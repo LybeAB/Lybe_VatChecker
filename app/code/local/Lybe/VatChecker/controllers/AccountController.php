@@ -56,7 +56,7 @@ class Lybe_VatChecker_AccountController extends Mage_Customer_AccountController 
             $errors = $this->_getCustomerErrors($customer);
 
             if (empty($errors)) {
-                $customer->cleanPasswordsValidationData();
+                $this->cleanPasswordsValidationData();
                 $customer->save();
                 $this->_dispatchRegisterSuccess($customer);
                 $this->_successProcessRegistration($customer);
@@ -79,6 +79,19 @@ class Lybe_VatChecker_AccountController extends Mage_Customer_AccountController 
         }
 
         $this->_redirectError($errUrl);
+    }
+
+    /**
+     * Clean password's validation data (password, password_confirmation)
+     *
+     * @return Mage_Customer_Model_Customer
+     */
+    public function cleanPasswordsValidationData()
+    {
+        $customer = $this->_getCustomer();
+        $customer->setData('password', null);
+        $customer->setData('password_confirmation', null);
+        return $this;
     }
 
 

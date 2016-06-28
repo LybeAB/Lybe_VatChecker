@@ -6,6 +6,7 @@
 1. Navigate to backend System » Config » Customers » Customer Configuration.
 2. In "Name and Address Options", set Tax/VAT Number to "Optional" or "Required" to show frontend.
 3. check if the default country is EU country
+4. add Css classes .vatchecker.success and .vatchecker.fail
 
 ### File Structure
 1. Download the package as a zip or use git clone command.

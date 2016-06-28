@@ -58,6 +58,8 @@
         elem.removeAttribute('style');
 
         var btn = $('general_store_information_validate_vat_number');
+        btn.removeClassName('fail');
+        btn.removeClassName('success');
 
         result = '<?php echo $this->__('Loading...') ?>';
         elem.update(result);
@@ -75,17 +77,16 @@
                         response = response.responseText;
                         if (response == 1) {
                             result = '<?php echo $this->__('VAT Number is valid') ?>';
-                            elem.removeClassName('fail').addClassName('success').update(result).setStyle({background: 'green', border : 'green'});
+                            elem.update(result);
                             btn.removeClassName('fail').addClassName('success');
                         } else {
                             result = '<?php echo $this->__('VAT Number is Invalid') ?>';
-                            elem.removeClassName('success').addClassName('fail').update(result).setStyle({background: 'red', border : 'red'});
+                            elem.update(result);
                             btn.removeClassName('success').addClassName('fail');
                         }
                     } catch (e) {
                         result = '<?php echo $this->__('Check your VAT') ?>';
                         elem.update(result);
-                        elem.removeClassName('success').addClassName('fail').setStyle({background: 'red', border : 'red'});
                         btn.removeClassName('success').addClassName('fail');
                     }
 
