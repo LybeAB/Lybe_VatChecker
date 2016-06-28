@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Lybe_Vatchecker>
+        <Lybe_VatChecker>
             <active>true</active>
             <codePool>local</codePool>
             <version>0.1.0</version>
-        </Lybe_Vatchecker>
+        </Lybe_VatChecker>
     </modules>
 </config>
