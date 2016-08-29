@@ -17,7 +17,7 @@
             <customer>
                 <args>
                     <modules>
-                        <New_Mage before="Mage_Customer">Lybe_Vatchecker</New_Mage>
+                        <New_Mage before="Mage_Customer">Lybe_VatChecker</New_Mage>
                     </modules>
                 </args>
             </customer>

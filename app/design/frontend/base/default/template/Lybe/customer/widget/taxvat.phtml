@@ -24,7 +24,25 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<style>
+    #validation_result{
+        display: table;
+        width: 309px;
+        padding: 10px 4px;
+        margin: 3px 2px;
+    }
 
+    .fail{
+        background-color: #ce2e26;
+        color : white;
+    }
+
+    .success{
+        background-color:  #6BC86B;
+        color : white;
+    }
+
+</style>
 <div class="input-box" style="display: flex">
     <label for="<?php echo $this->getFieldId('taxvat')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->__('Tax/VAT number') ?></label>
 </div>
@@ -58,8 +76,8 @@
         elem.removeAttribute('style');
 
         var btn = $('general_store_information_validate_vat_number');
-        btn.removeClassName('fail');
-        btn.removeClassName('success');
+        elem.removeClassName('fail');
+        elem.removeClassName('success');
 
         result = '<?php echo $this->__('Loading...') ?>';
         elem.update(result);
@@ -78,16 +96,16 @@
                         if (response == 1) {
                             result = '<?php echo $this->__('VAT Number is valid') ?>';
                             elem.update(result);
-                            btn.removeClassName('fail').addClassName('success');
+                            elem.removeClassName('fail').addClassName('success');
                         } else {
                             result = '<?php echo $this->__('VAT Number is Invalid') ?>';
                             elem.update(result);
-                            btn.removeClassName('success').addClassName('fail');
+                            elem.removeClassName('success').addClassName('fail');
                         }
                     } catch (e) {
                         result = '<?php echo $this->__('Check your VAT') ?>';
                         elem.update(result);
-                        btn.removeClassName('success').addClassName('fail');
+                        elem.removeClassName('success').addClassName('fail');
                     }
 
                 }
@@ -95,11 +113,13 @@
         }else{
             result = '<?php echo $this->__('VAT Number is empty') ?>';
             elem.update(result);
+            elem.removeClassName('success').addClassName('fail');
         }
 
     }
     //]]>
 </script>
 <button onclick="javascript:validateVat(); return false;" class="button vatcheck" type="button" id="general_store_information_validate_vat_number">
-    <span id="validation_result"><?php echo $this->__('Check your VAT') ?></span>
+    <?php echo $this->__('Check your VAT') ?>
 </button>
+<div id="validation_result"></div>
