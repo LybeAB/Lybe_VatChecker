@@ -33,13 +33,22 @@
     }
 
     .fail{
-        background-color: #ce2e26;
-        color : white;
+        clear: both;
+        font-size: 0.9166em;
+        line-height: 1em;
+        color: #ee001c;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .success{
-        background-color:  #6BC86B;
-        color : white;
+       clear: both;
+        font-size: 0.9166em;
+        line-height: 1em;
+        color: #6BC86B;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
     }
 
 </style>
@@ -75,6 +84,8 @@
         var elem = $('validation_result');
         elem.removeAttribute('style');
 
+        var input =  $('billing:taxvat');
+
         var btn = $('general_store_information_validate_vat_number');
         elem.removeClassName('fail');
         elem.removeClassName('success');
@@ -97,15 +108,18 @@
                             result = '<?php echo $this->__('VAT Number is valid') ?>';
                             elem.update(result);
                             elem.removeClassName('fail').addClassName('success');
+                            input.removeClassName('validation-failed');
                         } else {
                             result = '<?php echo $this->__('VAT Number is Invalid') ?>';
                             elem.update(result);
                             elem.removeClassName('success').addClassName('fail');
+                            input.addClassName('validation-failed');
                         }
                     } catch (e) {
                         result = '<?php echo $this->__('Check your VAT') ?>';
                         elem.update(result);
                         elem.removeClassName('success').addClassName('fail');
+                        input.addClassName('validation-failed');
                     }
 
                 }
@@ -114,6 +128,7 @@
             result = '<?php echo $this->__('VAT Number is empty') ?>';
             elem.update(result);
             elem.removeClassName('success').addClassName('fail');
+            input.addClassName('validation-failed');
         }
 
     }
