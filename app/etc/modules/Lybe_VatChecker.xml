@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <config>
     <modules>
+        <!-- add comment -->
         <Lybe_VatChecker>
             <active>true</active>
             <codePool>local</codePool>

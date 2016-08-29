@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Lybe_Vatchecker>
+        <Lybe_VatChecker>
             <version>0.1.0</version>
-        </Lybe_Vatchecker>
+        </Lybe_VatChecker>
     </modules>
     <frontend>
         <routers>
