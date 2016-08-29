@@ -53,7 +53,7 @@
 
 </style>
 <div class="input-box" style="display: flex">
-    <label for="<?php echo $this->getFieldId('taxvat')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->__('Tax/VAT number') ?></label>
+    <label for="<?php echo $this->getFieldId('taxvat')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->__('Moms/VAT nummer') ?></label>
 </div>
 <div class="input-box" style="display: initial">
     <?php
@@ -75,7 +75,7 @@
             <?php endforeach; ?>
         </select>
     <?php endif; ?>
-    <input type="text" id="billing:taxvat" placeholder="55XXXXXXXXX" name="<?php echo $this->getFieldName('taxvat')?>" value="<?php echo $this->escapeHtml($this->getTaxvat()) ?>" title="<?php echo $this->__('Tax/VAT number') ?>" class="input-text required-entry validate-number <?php echo $this->helper('customer/address')->getAttributeValidationClass('taxvat') ?>" <?php echo $this->getFieldParams() ?> />
+    <input type="text" id="billing:taxvat" placeholder="55XXXXXXXXX" name="<?php echo $this->getFieldName('taxvat')?>" value="<?php echo $this->escapeHtml($this->getTaxvat()) ?>" title="<?php echo $this->__('Moms/VAT nummer') ?>" class="input-text required-entry validate-number <?php echo $this->helper('customer/address')->getAttributeValidationClass('taxvat') ?>" <?php echo $this->getFieldParams() ?> />
 </div>
 <script type="text/javascript">
     //<![CDATA[
