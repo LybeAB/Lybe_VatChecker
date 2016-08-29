@@ -10,7 +10,7 @@
             <euvatchecker>
                 <use>standard</use>
                 <args>
-                    <module>Lybe_Vatchecker</module>
+                    <module>Lybe_VatChecker</module>
                     <frontName>euvatchecker</frontName>
                 </args>
             </euvatchecker>
