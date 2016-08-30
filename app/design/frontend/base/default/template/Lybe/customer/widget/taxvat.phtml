@@ -75,7 +75,7 @@
             <?php endforeach; ?>
         </select>
     <?php endif; ?>
-    <input type="text" id="billing:taxvat" placeholder="55XXXXXXXXX" name="<?php echo $this->getFieldName('taxvat')?>" value="<?php echo $this->escapeHtml($this->getTaxvat()) ?>" title="<?php echo $this->__('Moms/VAT nummer') ?>" class="input-text required-entry validate-number <?php echo $this->helper('customer/address')->getAttributeValidationClass('taxvat') ?>" <?php echo $this->getFieldParams() ?> />
+    <input style="max-width: 82%; width:inherit" type="text" id="billing:taxvat" placeholder="55XXXXXXXXX" name="<?php echo $this->getFieldName('taxvat')?>" value="<?php echo $this->escapeHtml($this->getTaxvat()) ?>" title="<?php echo $this->__('Moms/VAT nummer') ?>" class="input-text required-entry validate-number <?php echo $this->helper('customer/address')->getAttributeValidationClass('taxvat') ?>" <?php echo $this->getFieldParams() ?> />
 </div>
 <script type="text/javascript">
     //<![CDATA[
@@ -134,7 +134,22 @@
     }
     //]]>
 </script>
-<button onclick="javascript:validateVat(); return false;" class="button vatcheck" type="button" id="general_store_information_validate_vat_number">
+<?php
+    $currentUrl = Mage::helper('core/url')->getCurrentUrl();
+    $url = Mage::getSingleton('core/url')->parseUrl($currentUrl);
+    $path = $url->getPath();
+
+    $accountPaths = array('/customer/account/create/', '/customer/account/edit/');
+    if(in_array($path, $accountPaths))
+    {
+        $style = 'style="relative: absolute;right: 0; top: 0;height: 36px;line-height: 1; margin: 20px 0;border-radius: 0px 4px 4px 0px;"';
+    }else{
+        $style = 'style="position: absolute;right: 0; top: 0;height: 25px;line-height: 1; margin: 20px 0;border-radius: 0px 4px 4px 0px;"';
+    }
+
+?>
+<button  <?php echo $style ?>
+ onclick="javascript:validateVat(); return false;" class="button vatcheck" type="button" id="general_store_information_validate_vat_number">
     <?php echo $this->__('Check your VAT') ?>
 </button>
 <div id="validation_result"></div>
